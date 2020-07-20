@@ -1,6 +1,7 @@
 ﻿@{
-    Layout = "_Layout";
+    // Layout = "_Layout";
     ViewData["Title"] = "Contato";
+    LojaVirtual.Models.Contato contato = (LojaVirtual.Models.Contato)ViewData["CONTATO"];
 }
 
     <main role="main">
@@ -34,48 +35,56 @@
 
                     <h4 class="subtitle-doc">
                         # Contato
-                        <a href="#" data-html="code_payment" class="showcode">[code]</a>
+                       
                     </h4>
-                    <div id="code_payment">
+                    <div>
 
                         <article class="card">
                             <div class="card-body p-5">
-                                <p class="alert alert-success">Mensagem de sucesso!</p>
+                                @if (ViewData["MSG_S"] != null)
+                                {
+                                    <p class="alert alert-success">@ViewData["MSG_S"]</p>
+                                }
 
-                                <form role="form">
+                                @if (ViewData["MSG_E"] != null)
+                                {
+                                    <p class="alert alert-danger">@Html.Raw(ViewData["MSG_E"])</p>
+                                }
+
+                                <form role="form" method="post" action="/Home/ContatoAcao">
                                     <div class="form-group">
-                                        <label for="username">Nome</label>
+                                        <label for="name">Nome</label>
                                         <div class="input-group">
                                             <div class="input-group-prepend">
                                                 <span class="input-group-text"><i class="fa fa-user"></i></span>
                                             </div>
-                                            <input type="text" class="form-control" name="username" placeholder=""
-                                                   required="">
+                                            <input type="text" class="form-control" id="name" name="name" placeholder=""
+                                                   required="" value="@(contato != null ? contato.Nome : "" )">
                                         </div> <!-- input-group.// -->
                                     </div> <!-- form-group.// -->
 
                                     <div class="form-group">
-                                        <label for="cardNumber">E-mail</label>
+                                        <label for="email">E-mail</label>
                                         <div class="input-group">
                                             <div class="input-group-prepend">
                                                 <span class="input-group-text"><i class="fa fa-at"></i></span>
                                             </div>
-                                            <input type="text" class="form-control" name="cardNumber" placeholder="">
+                                            <input type="text" class="form-control" id="email" name="email" placeholder="" value="@(contato != null ? contato.Email : "")">
                                         </div> <!-- input-group.// -->
                                     </div> <!-- form-group.// -->
 
                                     <div class="row">
                                         <div class="col-sm-12">
                                             <div class="form-group">
-                                                <label><span class="hidden-xs">Texto</span> </label>
+                                                <label for="texto"><span class="hidden-xs">Texto</span> </label>
                                                 <div class="form-inline">
-                                                    <textarea class="form-control" style="width:100%"></textarea>
+                                                    <textarea class="form-control" name="texto" id="texto" style="width:100%">@(contato != null ? contato.Nome : "")</textarea>
 
                                                 </div>
                                             </div>
                                         </div>
                                     </div> <!-- row.// -->
-                                    <button class="subscribe btn btn-primary btn-block" type="button"> Enviar </button>
+                                    <button class="subscribe btn btn-primary btn-block" type="submit"> Enviar </button>
                                 </form>
                             </div> <!-- card-body.// -->
                         </article> <!-- card.// -->
