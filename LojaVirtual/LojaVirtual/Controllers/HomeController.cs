@@ -55,8 +55,26 @@ namespace LojaVirtual.Controllers
             return View();
         }
 
+        [HttpGet]
         public IActionResult CadastroCliente()
         {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult CadastroCliente([FromForm] Cliente cliente)
+        {
+            if (ModelState.IsValid)
+            {
+                _banco.Add(cliente);
+                _banco.SaveChanges();
+
+                TempData["MSG_S"] = "Cadastro Realizado com sucesso!";
+
+                //TODO - Implementar redirecionamentos diferentes (Painel, carrinho de compras e etc)
+                return RedirectToAction(nameof(CadastroCliente));
+            }
+
             return View();
         }
 

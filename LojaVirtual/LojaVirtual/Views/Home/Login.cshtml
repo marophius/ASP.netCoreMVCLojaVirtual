@@ -1,7 +1,6 @@
 ﻿
 @{
     ViewData["Title"] = "Login";
-    // Layout = "_Layout";
 }
 
     <main role="main">
@@ -16,7 +15,7 @@
                 <div id="code_login_1">
                     <div class="card">
                         <article class="card-body">
-                            <a href="/Home/CadastroCliente" class="float-right btn btn-outline-primary">Sign up</a>
+                            <a asp-controller="Home" asp-action="CadastroCliente" class="float-right btn btn-outline-primary">Cadastrar-se</a>
                             <h4 class="card-title mb-4 mt-1">Sign in</h4>
                             <form>
                                 <div class="form-group">
