@@ -3,6 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using LojaVirtual.Database;
+using LojaVirtual.Models.Repositories;
+using LojaVirtual.Models.Repositories.Contracts;
+using LojaVirtual.Repositories;
+using LojaVirtual.Repositories.Contracts;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -27,6 +31,8 @@ namespace LojaVirtual
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddScoped<IClienteRepository, ClienteRepository>();
+            services.AddScoped<INewsLetterRepository, NewsLetterRepository>();
             services.Configure<CookiePolicyOptions>(options =>
             {
                 // This lambda determines whether user consent for non-essential cookies is needed for a given request.
@@ -34,8 +40,11 @@ namespace LojaVirtual
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
+            services.AddSession(options => {
+                options.Cookie.IsEssential = true;
+            });
 
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2).AddSessionStateTempDataProvider();
 
             string connection = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=LojaVirtual;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
             services.AddDbContext<LojaVirtualContext>(options => options.UseSqlServer(connection));
@@ -59,6 +68,7 @@ namespace LojaVirtual
             app.UseDefaultFiles();
             app.UseStaticFiles();
             app.UseCookiePolicy();
+            app.UseSession();
 
             app.UseMvc(routes =>
             {
