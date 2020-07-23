@@ -11,6 +11,8 @@ using LojaVirtual.Database;
 using LojaVirtual.Models.Repositories;
 using LojaVirtual.Models.Repositories.Contracts;
 using LojaVirtual.Repositories.Contracts;
+using Microsoft.AspNetCore.Http;
+using LojaVirtual.Libraries.Acesso;
 
 namespace LojaVirtual.Controllers
 {
@@ -18,11 +20,13 @@ namespace LojaVirtual.Controllers
     {
         private IClienteRepository _clienteRepository;
         private INewsLetterRepository _newsLetterRepository;
+        private LoginCliente _login;
 
-        public HomeController(IClienteRepository clRepos, INewsLetterRepository nlRepos)
+        public HomeController(IClienteRepository clRepos, INewsLetterRepository nlRepos, LoginCliente login)
         {
             _clienteRepository = clRepos;
             _newsLetterRepository = nlRepos;
+            _login = login;
         }
 
         [HttpGet]
@@ -56,9 +60,45 @@ namespace LojaVirtual.Controllers
             return View();
         }
 
+        [HttpGet]
         public IActionResult Login()
         {
             return View();
+        }
+
+        [HttpPost]
+        public IActionResult Login([FromForm] Cliente cliente)
+        {
+            Cliente clienteDB = _clienteRepository.Login(cliente.Email, cliente.Senha);
+
+            if(clienteDB != null)
+            {
+                _login.Login(clienteDB);
+                return new RedirectResult(Url.Action(nameof(Painel)));
+            }
+
+            else
+            {
+                ViewData["MSG_E"] = "Usuario não encontrado, verifique o email e senha digitado!";
+                return View();
+            }
+
+        }
+
+        [HttpGet]
+        public IActionResult Painel()
+        {
+            Cliente cl = _login.GetCliente();
+
+            if (cl != null)
+            {
+                return new ContentResult() { Content = "Usuario: " + cl.Id + ". Email: " + cl.Email  + " - Idade: " + DateTime.Now.AddYears(-cl.Nascimento.Year).ToString("yyyy") + " - logado!" };
+            }
+            else
+            {
+                return new ContentResult() { Content = "Não tem acesso" };
+            }
+     
         }
 
         [HttpGet]

@@ -32,6 +32,6 @@ C:\Users\ifeme\source\ASP.netCoreMVCLojaVirtual\LojaVirtual\LojaVirtual\obj\Debu
 C:\Users\ifeme\source\ASP.netCoreMVCLojaVirtual\LojaVirtual\LojaVirtual\obj\Debug\netcoreapp2.2\Razor\Views\Home\CarrinhoCompras.cshtml.g.cs
 C:\Users\ifeme\source\ASP.netCoreMVCLojaVirtual\LojaVirtual\LojaVirtual\obj\Debug\netcoreapp2.2\LojaVirtual.Libraries.Lang.Mensagem.resources
 C:\Users\ifeme\source\ASP.netCoreMVCLojaVirtual\LojaVirtual\LojaVirtual\obj\Debug\netcoreapp2.2\LojaVirtual.csproj.GenerateResource.cache
-C:\Users\ifeme\source\ASP.netCoreMVCLojaVirtual\LojaVirtual\LojaVirtual\obj\Debug\netcoreapp2.2\LojaVirtual.csproj.CoreCompileInputs.cache
 C:\Users\ifeme\source\ASP.netCoreMVCLojaVirtual\LojaVirtual\LojaVirtual\obj\Debug\netcoreapp2.2\Razor\Views\_ViewImports.cshtml.g.cs
 C:\Users\ifeme\source\ASP.netCoreMVCLojaVirtual\LojaVirtual\LojaVirtual\obj\Debug\netcoreapp2.2\LojaVirtual.csprojAssemblyReference.cache
+C:\Users\ifeme\source\ASP.netCoreMVCLojaVirtual\LojaVirtual\LojaVirtual\obj\Debug\netcoreapp2.2\LojaVirtual.csproj.CoreCompileInputs.cache

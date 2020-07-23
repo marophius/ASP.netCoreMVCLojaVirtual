@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using LojaVirtual.Database;
+using LojaVirtual.Libraries.Acesso;
+using LojaVirtual.Libraries.Sessao;
 using LojaVirtual.Models.Repositories;
 using LojaVirtual.Models.Repositories.Contracts;
 using LojaVirtual.Repositories;
@@ -31,6 +33,8 @@ namespace LojaVirtual
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddHttpContextAccessor();
+
             services.AddScoped<IClienteRepository, ClienteRepository>();
             services.AddScoped<INewsLetterRepository, NewsLetterRepository>();
             services.Configure<CookiePolicyOptions>(options =>
@@ -42,6 +46,16 @@ namespace LojaVirtual
 
             services.AddSession(options => {
                 options.Cookie.IsEssential = true;
+            });
+
+            services.AddScoped<Sessao>();
+            services.AddScoped<LoginCliente>();
+
+            //Session - configuração
+
+            services.AddMemoryCache(); //Guardar os dados na memoria
+            services.AddSession(options => {
+
             });
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2).AddSessionStateTempDataProvider();

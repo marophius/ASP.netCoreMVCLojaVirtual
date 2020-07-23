@@ -36,7 +36,7 @@ namespace LojaVirtual.Models.Repositories
 
         public Cliente Login(string email, string senha)
         {
-            Cliente cl = _banco.Clientes.Where(m => m.Email == email && m.Senha == senha).First();
+            Cliente cl = _banco.Clientes.Where(m => m.Email == email && m.Senha == senha).FirstOrDefault();
             return cl;
         }
 
