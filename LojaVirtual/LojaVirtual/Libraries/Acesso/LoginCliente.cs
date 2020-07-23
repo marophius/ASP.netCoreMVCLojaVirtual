@@ -11,7 +11,7 @@ namespace LojaVirtual.Libraries.Acesso
     public class LoginCliente
     {
         private Sessao.Sessao _sessao;
-        private string Key = "Login.Cliente";
+        private string _Key = "Login.Cliente";
 
         public LoginCliente(Sessao.Sessao sessao)
         {
@@ -22,14 +22,14 @@ namespace LojaVirtual.Libraries.Acesso
         {
             // armazenar na sessão
             string clienteJSONString = JsonConvert.SerializeObject(cliente);
-            _sessao.Cadastrar(Key, clienteJSONString);
+            _sessao.Cadastrar(_Key, clienteJSONString);
         }
 
         public Cliente GetCliente()
         {
-            if (_sessao.Existe(Key))
+            if (_sessao.Existe(_Key))
             {
-                string clienteJSONstring = _sessao.Consultar(Key);
+                string clienteJSONstring = _sessao.Consultar(_Key);
                 return JsonConvert.DeserializeObject<Cliente>(clienteJSONstring);
             }
 
