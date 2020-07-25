@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using LojaVirtual.Database;
 using LojaVirtual.Libraries.Acesso;
+using LojaVirtual.Libraries.Login;
 using LojaVirtual.Libraries.Sessao;
 using LojaVirtual.Models.Repositories;
 using LojaVirtual.Models.Repositories.Contracts;
@@ -36,6 +37,7 @@ namespace LojaVirtual
             services.AddHttpContextAccessor();
 
             services.AddScoped<IClienteRepository, ClienteRepository>();
+            services.AddScoped<IColaboradorRepository, ColaboradorRepository>();
             services.AddScoped<INewsLetterRepository, NewsLetterRepository>();
             services.Configure<CookiePolicyOptions>(options =>
             {
@@ -50,6 +52,7 @@ namespace LojaVirtual
 
             services.AddScoped<Sessao>();
             services.AddScoped<LoginCliente>();
+            services.AddScoped<LoginColaborador>();
 
             //Session - configuração
 
@@ -86,6 +89,11 @@ namespace LojaVirtual
 
             app.UseMvc(routes =>
             {
+                routes.MapRoute(
+                    name: "areas",
+                    template: "{area:exists}/{controller=Home}/{action=Index}/{id?}"
+                );
+
                 routes.MapRoute(
                     name: "default",
                     template: "/{action=Index}/{controller=Home}/{id?}");

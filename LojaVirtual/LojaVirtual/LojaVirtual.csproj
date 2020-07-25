@@ -19,6 +19,7 @@
 
 
   <ItemGroup>
+    <Folder Include="Areas\Colaborador\Models\" />
     <Folder Include="Views\Contato\" />
   </ItemGroup>
 

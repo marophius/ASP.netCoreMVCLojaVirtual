@@ -13,6 +13,7 @@ using LojaVirtual.Models.Repositories.Contracts;
 using LojaVirtual.Repositories.Contracts;
 using Microsoft.AspNetCore.Http;
 using LojaVirtual.Libraries.Acesso;
+using LojaVirtual.Libraries.Filtro;
 
 namespace LojaVirtual.Controllers
 {
@@ -86,18 +87,10 @@ namespace LojaVirtual.Controllers
         }
 
         [HttpGet]
+        [ClienteAutorizacao]
         public IActionResult Painel()
         {
-            Cliente cl = _login.GetCliente();
-
-            if (cl != null)
-            {
-                return new ContentResult() { Content = "Usuario: " + cl.Id + ". Email: " + cl.Email  + " - Idade: " + DateTime.Now.AddYears(-cl.Nascimento.Year).ToString("yyyy") + " - logado!" };
-            }
-            else
-            {
-                return new ContentResult() { Content = "Não tem acesso" };
-            }
+            return new ContentResult() { Content = "Este é o painel do cliente" };
      
         }
 
