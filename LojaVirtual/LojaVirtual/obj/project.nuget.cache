@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "YtKfNqzMb2oOW/zPFcqhWjUPhy0bQaC22ZD/5gQkahG0HWHV5KJkPGXa1UgIrEQCjmMjxxsHlUjMMlziwiXZkA==",
+  "dgSpecHash": "MuTq8yldC7R5EWO36sjH5rVI0j9yJGix7Iv4EsPT1R3qrDPbJbiYmW8iWuk7LR8D3PjnYb7O4jIgGHw1ESDRtA==",
   "success": true,
   "projectFilePath": "C:\\Users\\ifeme\\source\\ASP.netCoreMVCLojaVirtual\\LojaVirtual\\LojaVirtual\\LojaVirtual.csproj",
   "expectedPackageFiles": [
@@ -247,7 +247,7 @@
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\system.linq\\4.3.0\\system.linq.4.3.0.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\system.linq.expressions\\4.3.0\\system.linq.expressions.4.3.0.nupkg.sha512",
     "C:\\Users\\ifeme\\.nuget\\packages\\system.linq.parallel\\4.3.0\\system.linq.parallel.4.3.0.nupkg.sha512",
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\system.linq.queryable\\4.0.1\\system.linq.queryable.4.0.1.nupkg.sha512",
+    "C:\\Users\\ifeme\\.nuget\\packages\\system.linq.queryable\\4.3.0\\system.linq.queryable.4.3.0.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\system.memory\\4.5.1\\system.memory.4.5.1.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\system.net.http\\4.3.0\\system.net.http.4.3.0.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\system.net.primitives\\4.3.0\\system.net.primitives.4.3.0.nupkg.sha512",
@@ -304,7 +304,9 @@
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\system.xml.xmldocument\\4.3.0\\system.xml.xmldocument.4.3.0.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\system.xml.xmlserializer\\4.3.0\\system.xml.xmlserializer.4.3.0.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\system.xml.xpath\\4.3.0\\system.xml.xpath.4.3.0.nupkg.sha512",
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\system.xml.xpath.xdocument\\4.3.0\\system.xml.xpath.xdocument.4.3.0.nupkg.sha512"
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\system.xml.xpath.xdocument\\4.3.0\\system.xml.xpath.xdocument.4.3.0.nupkg.sha512",
+    "C:\\Users\\ifeme\\.nuget\\packages\\x.pagedlist\\7.6.0\\x.pagedlist.7.6.0.nupkg.sha512",
+    "C:\\Users\\ifeme\\.nuget\\packages\\x.pagedlist.mvc.core\\7.6.0\\x.pagedlist.mvc.core.7.6.0.nupkg.sha512"
   ],
   "logs": []
 }

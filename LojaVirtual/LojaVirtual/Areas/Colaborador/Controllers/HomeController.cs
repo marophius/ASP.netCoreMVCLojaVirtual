@@ -46,14 +46,14 @@ namespace LojaVirtual.Areas.Colaborador.Controllers
             }
         }
 
-
+        [HttpGet]
         [ColaboradorAutorizacao]
         public IActionResult Painel()
         {
             return View();
         }
 
-        [ColaboradorAutorizacao]
+        
         public IActionResult Logout()
         {
             _loginColaborador.Logout();

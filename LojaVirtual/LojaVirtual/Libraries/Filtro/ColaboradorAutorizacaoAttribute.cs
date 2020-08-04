@@ -21,7 +21,7 @@ namespace LojaVirtual.Libraries.Filtro
 
             if(colab == null)
             {
-                context.Result = new ContentResult() { Content = "Acesso Negado!" };
+                context.Result = new RedirectToActionResult("Login", "Home", null);
             }
         }
     }
