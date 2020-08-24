@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using LojaVirtual.Libraries.Filtro;
+using LojaVirtual.Libraries.Lang;
 using LojaVirtual.Models;
 using LojaVirtual.Repositories.Contracts;
 using Microsoft.AspNetCore.Mvc;
@@ -44,7 +45,7 @@ namespace LojaVirtual.Areas.Colaborador.Controllers
             {
                 _categoriaRepos.Cadastrar(categoria);
 
-                TempData["MSG_S"] = "Registro salvo com sucesso!";
+                TempData["MSG_S"] = Mensagem.MSG_S001;
 
                 return RedirectToAction(nameof(Index));
             }
@@ -68,7 +69,7 @@ namespace LojaVirtual.Areas.Colaborador.Controllers
             if (ModelState.IsValid)
             {
                 _categoriaRepos.Atualizar(categoria);
-                TempData["MSG_S"] = "Registro salvo com sucesso!";
+                TempData["MSG_S"] = Mensagem.MSG_S001;
 
                 return RedirectToAction(nameof(Index));
             }
@@ -81,7 +82,7 @@ namespace LojaVirtual.Areas.Colaborador.Controllers
         public IActionResult Excluir(int id)
         {
             _categoriaRepos.Excluir(id);
-            TempData["MSG_S"] = "Registro excluído com sucesso!";
+            TempData["MSG_S"] = Mensagem.MSG_S002;
 
             return RedirectToAction(nameof(Index));
         }

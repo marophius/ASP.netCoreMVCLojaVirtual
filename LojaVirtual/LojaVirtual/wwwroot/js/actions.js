@@ -8,3 +8,5 @@
         }
     });
 })
+
+$('.collapse').collapse();

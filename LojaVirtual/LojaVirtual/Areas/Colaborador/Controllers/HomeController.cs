@@ -53,7 +53,8 @@ namespace LojaVirtual.Areas.Colaborador.Controllers
             return View();
         }
 
-        
+        [ColaboradorAutorizacao]
+        [ValidateHttpReferer]
         public IActionResult Logout()
         {
             _loginColaborador.Logout();

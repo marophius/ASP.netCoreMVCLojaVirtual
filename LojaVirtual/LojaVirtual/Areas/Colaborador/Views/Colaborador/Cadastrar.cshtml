@@ -1,0 +1,26 @@
+﻿@model LojaVirtual.Models.Colaborador;
+@{
+    ViewData["Title"] = "Cadastrar";
+    Layout = "_Layout";
+}
+
+<h1>Cadastrar</h1>
+
+
+<form method="post">
+    <div class="form-group">
+        <label asp-for="Nome">Nome</label>
+        <input asp-for="Nome" placeholder="Digite o nome do colaborador" class="form-control">
+        <span asp-validation-for="Nome" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Email">Email</label>
+        <input asp-for="Email" placeholder="Digite um email para o colaborador" class="form-control">
+        <span asp-validation-for="Email" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Salvar</button>
+    <a asp-action="Index" class="btn btn-dark">Voltar</a>
+</form>
+
